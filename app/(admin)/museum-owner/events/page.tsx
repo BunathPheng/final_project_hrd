@@ -142,7 +142,7 @@ export default function EventsPage(): JSX.Element {
                         <section className="grid gap-7 w-full">
                             <section className="grid sm:grid-cols-2 lg:grid-cols-3 w-full gap-7 xl:gap-10">
                                 <Events
-                                    items={events}
+                                    items={[]}
                                     isMuseumOwner={true}
                                     onDelete={handleDeleteEvent}
                                 />

@@ -14,6 +14,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { IconProps } from "iconsax-reactjs"
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
     enableYearMonthSelect?: boolean;
@@ -27,8 +28,11 @@ function Calendars({
     ...props
 }: CalendarProps) {
     const [currentMonth, setCurrentMonth] = React.useState(
-        props.selected instanceof Date ? props.selected : new Date()
+        props && 'selected' in props && props.selected instanceof Date
+            ? props.selected
+            : new Date()
     );
+
 
     const months = [
         "January", "February", "March", "April", "May", "June",
@@ -79,7 +83,7 @@ function Calendars({
                         ))}
                     </SelectContent>
                 </Select>
-                
+
                 <Select
                     value={displayMonth.getFullYear().toString()}
                     onValueChange={handleYearChange}
@@ -149,11 +153,11 @@ function Calendars({
                 ...classNames,
             }}
             components={{
-                IconLeft: ({ className, ...props }) => (
-                    <ChevronLeft className={cn("h-4 w-4", className)} {...props} />
+                IconLeft: (props: IconProps) => (
+                    <ChevronLeft className={cn("h-4 w-4", props.className)} {...props} />
                 ),
-                IconRight: ({ className, ...props }) => (
-                    <ChevronRight className={cn("h-4 w-4", className)} {...props} />
+                IconRight: (props: IconProps) => (
+                    <ChevronRight className={cn("h-4 w-4", props.className)} {...props} />
                 ),
                 Caption: CustomCaption,
             }}

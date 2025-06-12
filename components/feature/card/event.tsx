@@ -14,7 +14,7 @@ import { EventProps } from "@/types/events";
 import { SmartImage } from "../fallback/smart-image";
 
 type EventComponentProps = {
-    items: EventProps[];
+    items: EventProps[] | [];
     isMuseumOwner?: boolean;
     onDelete?: (id: number) => void;
 };

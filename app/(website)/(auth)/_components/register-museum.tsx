@@ -29,7 +29,7 @@ interface RoleProps {
   role: string;
 }
 
-export const RegisterMuseumOwnerForm: FC<RoleProps> = ({role}) => {
+export const RegisterMuseumOwnerForm: FC<RoleProps> = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [uploadedImageUrl, setUploadedImageUrl] = useState<string>("");
     const [isUploading, setIsUploading] = useState(false);
@@ -329,7 +329,7 @@ export const RegisterMuseumOwnerForm: FC<RoleProps> = ({role}) => {
                         <p className="text-s2 text-grey-900">
                             Or continue with
                         </p>
-                        <LoginGoogleMuseumOwner role={role}/>
+                        <LoginGoogleMuseumOwner role={"visitor"}/>
                     </div>
                 </div>
             </fieldset>
